@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+seaborn 
+gensim
+tensorflow
+flask
+python-box==6.0.2
+PyYAML
+-e .
