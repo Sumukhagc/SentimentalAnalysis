@@ -2,6 +2,14 @@ artifacts_root: artifacts
 
 data_ingestion:
     root_dir: artifacts/data_ingestion
-    source_url: https://github.com/Sumukhagc/datasets/raw/main/twitter_training.zip
+    source_url: https://github.com/Sumukhagc/datasets/raw/main/training.1600000.processed.noemoticon.csv.zip
     local_dir: artifacts/data_ingestion/data.zip
     unzip_dir: artifacts/data_ingestion  
+
+data_transformation:
+    root_dir: artifacts/data_transformation
+    data_path : artifacts/data_ingestion/sentiment.csv
+
+model_trainer:
+    data_path: artifacts/data_transformation/preprocessor.pkl
+    root_dir: artifacts/model_trainer    
