@@ -1,6 +1,6 @@
 from src.SentimentalAnalysis.utils.common import read_yaml,create_directories,getsize
 from src.SentimentalAnalysis.constants import *
-from src.SentimentalAnalysis.entity import DataIngestionConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
+from src.SentimentalAnalysis.entity import DataIngestionConfig,DataTransformationConfig,ModelTrainerConfig
 class ConfigurationManager:
     def __init__(self,config_file_path=CONFIG_FILE_PATH,params_file_path=PARAMS_FILE_PATH) -> DataIngestionConfig:
         self.config=read_yaml(config_file_path)

@@ -1,6 +1,7 @@
 from src.SentimentalAnalysis.pipeline.DataIngestionPipeline import DataIngestionPipeline
 from src.SentimentalAnalysis.pipeline.DataTransformationPipeline import DataTransformationPipeline
 from src.SentimentalAnalysis.pipeline.ModelTrainerPipeline import ModelTrainerPipeline
+from src.SentimentalAnalysis.pipeline.PredictionPipeline import PredictionPipeline
 from src.SentimentalAnalysis.logging import logger
 from tensorflow.keras.models import load_model
 from nltk.corpus import stopwords
@@ -26,3 +27,10 @@ try:
 except Exception as e:
     logger.info("Exception ",e)       
 
+try:
+    model=PredictionPipeline()
+    model.main(X,Y,embedding_layer)
+    result=model.predict('Sumukha is happy')
+    print(result)
+except Exception as e:
+    logger.info("Exception ",e)       
