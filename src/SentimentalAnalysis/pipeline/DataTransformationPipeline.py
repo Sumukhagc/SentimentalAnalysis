@@ -9,4 +9,5 @@ class DataTransformationPipeline:
         config=ConfigurationManager()
         data_transformation_config=config.get_data_transformation_config()
         data_transformation=DataTransformation(data_transformation_config)
-        data_transformation.transform_data()
+        X,Y,embedding_layer=data_transformation.transform_data()
+        return X,Y,embedding_layer

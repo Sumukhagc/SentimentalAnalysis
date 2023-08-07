@@ -7,3 +7,4 @@ HASHTAG_PATTERN='#[^\s]+'
 URL_PATTERN='https?[^ ]*'
 vocabulary_size=25000
 sentence_length=20
+embedding_vector_size=100

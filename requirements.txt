@@ -1,7 +1,8 @@
 pandas
 numpy
+scikit-learn
 matplotlib
-seaborn 
+seaborn
 nltk
 gensim
 tensorflow

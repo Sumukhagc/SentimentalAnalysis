@@ -11,5 +11,5 @@ data_transformation:
     data_path : artifacts/data_ingestion/sentiment.csv
 
 model_trainer:
-    data_path: artifacts/data_transformation/preprocessor.pkl
-    root_dir: artifacts/model_trainer    
+    data_path: artifacts/data_transformation/embeddings.pkl
+    root_dir: artifacts/model_trainer      

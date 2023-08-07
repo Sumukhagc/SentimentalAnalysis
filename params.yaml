@@ -1,1 +1,3 @@
-key : val
+optimiser : adam
+learning_rate : 0.01
+validation_split_size : 0.1
