@@ -11,5 +11,4 @@ python-box==6.0.2
 PyYAML
 dill
 h5py
-h5pyViewer
 -e .
