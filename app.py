@@ -9,28 +9,29 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 import re
 import pickle
-try:
-    data=DataIngestionPipeline()
-    data.main()
-except Exception as e:
-    logger.info("Exception ",e)   
+from flask import Flask,render_template,redirect,request
 
-try:
-    data=DataTransformationPipeline()
-    X,Y,embedding_layer=data.main()
-except Exception as e:
-    logger.info("Exception ",e)   
 
-try:
-    model=ModelTrainerPipeline()
-    model.main(X,Y,embedding_layer)
-except Exception as e:
-    logger.info("Exception ",e)       
+app=Flask(__name__)
 
-try:
-    model=PredictionPipeline()
-    model.main(X,Y,embedding_layer)
-    result=model.predict('Sumukha is happy')
-    print(result)
-except Exception as e:
-    logger.info("Exception ",e)       
+@app.route('/')
+def home():
+   return render_template("home.html")
+
+@app.route('/predict',methods=['GET','POST'])
+def result():
+   if request.method == 'POST':
+      tweet = request.form['tweet']
+      print(type(tweet))
+      prediction_pipeline=PredictionPipeline()
+      result=prediction_pipeline.predict(tweet)
+      result=float(result[0][0])
+      if result>=0.5:
+         sentiment='positive'
+      else:
+         sentiment='negetive'   
+      
+      return render_template("predict.html",sentiment=sentiment)
+
+if __name__ == '__main__':
+   app.run(debug = True)
