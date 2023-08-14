@@ -24,7 +24,8 @@ def result():
       tweet = request.form['tweet']
       print(type(tweet))
       prediction_pipeline=PredictionPipeline()
-      result=prediction_pipeline.predict(tweet)
+      #result=prediction_pipeline.predict(tweet)
+      result=0.8
       result=float(result[0][0])
       if result>=0.5:
          sentiment='positive'
