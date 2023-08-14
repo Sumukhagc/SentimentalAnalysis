@@ -21,6 +21,6 @@ class PredictionPipeline:
         return review
     
     def predict(self,tweet:str):
-        model=tf.keras.models.load_model('artifacts/model_trainer/model.h5')
+        model=load_model('artifacts/model_trainer/sentiment.pkl')
         result=model.predict(self.preprocess(tweet))
         return result
